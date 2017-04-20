@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-export default class Hello extends React.Component {
+class Hello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'initialize data',
+      name: props.initializeName
     };
   }
 
@@ -18,3 +19,9 @@ export default class Hello extends React.Component {
     );
   }
 }
+
+Hello.propTypes = {
+  initializeName: PropTypes.string.isRequired
+};
+
+export default Hello;

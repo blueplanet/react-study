@@ -6,7 +6,7 @@ import Hello from "./components/hello";
 function init() {
   const mountNode = document.getElementById("app");
 
-  ReactDOM.render(<Hello name="gyo" />, mountNode);
+  ReactDOM.render(<Hello initializeName="gyo" />, mountNode);
 }
 
 document.addEventListener("DOMContentLoaded", init);
