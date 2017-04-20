@@ -34,7 +34,8 @@ var Hello = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "hello"
+        "hello, ",
+        this.props.name
       );
     }
   }]);
@@ -45,7 +46,7 @@ var Hello = function (_React$Component) {
 function init() {
   var mountNode = document.getElementById("app");
 
-  _reactDom2.default.render(_react2.default.createElement(Hello, null), mountNode);
+  _reactDom2.default.render(_react2.default.createElement(Hello, { name: "gyo" }), mountNode);
 }
 
 document.addEventListener("DOMContentLoaded", init);
