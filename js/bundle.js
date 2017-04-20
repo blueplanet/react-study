@@ -65,18 +65,19 @@ var Hello = function (_React$Component) {
   _createClass(Hello, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         "div",
         null,
         "hello, ",
         this.state.name,
         _react2.default.createElement("br", null),
-        _react2.default.createElement("input", { type: "text", value: this.state.name, onChange: function onChange(e) {
-            return _this2.setState({ name: e.target.value });
-          } })
+        _react2.default.createElement("input", { type: "text", value: this.state.name, onChange: this.handleChange.bind(this) })
       );
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({ name: e.target.value });
     }
   }]);
 
