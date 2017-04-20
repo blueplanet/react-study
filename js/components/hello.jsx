@@ -15,6 +15,7 @@ class Hello extends React.Component {
         hello, {this.state.name}
         <br />
         <input type="text" value={this.state.name} onChange={this.handleChange.bind(this)} />
+        {this.props.children}
       </div>
     );
   }

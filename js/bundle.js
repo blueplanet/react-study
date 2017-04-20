@@ -17,8 +17,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function init() {
   var mountNode = document.getElementById("app");
+  var component = _react2.default.createElement(
+    _hello2.default,
+    { initializeName: "gyo" },
+    _react2.default.createElement(
+      "p",
+      null,
+      "this is child"
+    )
+  );
 
-  _reactDom2.default.render(_react2.default.createElement(_hello2.default, { initializeName: "gyo" }), mountNode);
+  _reactDom2.default.render(component, mountNode);
 }
 
 document.addEventListener("DOMContentLoaded", init);
@@ -71,7 +80,8 @@ var Hello = function (_React$Component) {
         "hello, ",
         this.state.name,
         _react2.default.createElement("br", null),
-        _react2.default.createElement("input", { type: "text", value: this.state.name, onChange: this.handleChange.bind(this) })
+        _react2.default.createElement("input", { type: "text", value: this.state.name, onChange: this.handleChange.bind(this) }),
+        this.props.children
       );
     }
   }, {

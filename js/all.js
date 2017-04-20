@@ -5,8 +5,13 @@ import Hello from "./components/hello";
 
 function init() {
   const mountNode = document.getElementById("app");
+  const component = (
+    <Hello initializeName="gyo">
+      <p>this is child</p>
+    </Hello>
+  );
 
-  ReactDOM.render(<Hello initializeName="gyo" />, mountNode);
+  ReactDOM.render(component, mountNode);
 }
 
 document.addEventListener("DOMContentLoaded", init);
