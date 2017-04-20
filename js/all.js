@@ -2,9 +2,18 @@ import React from "react";
 import ReactDOM from 'react-dom';
 
 class Hello extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'initialize data',
+    };
+  }
+
   render() {
     return (
-      <div>hello, {this.props.name}</div>
+      <div>
+        hello, {this.state.name}
+      </div>
     );
   }
 }

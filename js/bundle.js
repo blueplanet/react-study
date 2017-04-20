@@ -1,13 +1,13 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require("react-dom");
+var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22,20 +22,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Hello = function (_React$Component) {
   _inherits(Hello, _React$Component);
 
-  function Hello() {
+  function Hello(props) {
     _classCallCheck(this, Hello);
 
-    return _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).call(this, props));
+
+    _this.state = {
+      name: 'initialize data'
+    };
+    return _this;
   }
 
   _createClass(Hello, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
-        "hello, ",
-        this.props.name
+        'hello, ',
+        this.state.name
       );
     }
   }]);
@@ -46,7 +51,7 @@ var Hello = function (_React$Component) {
 function init() {
   var mountNode = document.getElementById("app");
 
-  _reactDom2.default.render(_react2.default.createElement(Hello, { name: "gyo" }), mountNode);
+  _reactDom2.default.render(_react2.default.createElement(Hello, { name: 'gyo' }), mountNode);
 }
 
 document.addEventListener("DOMContentLoaded", init);
