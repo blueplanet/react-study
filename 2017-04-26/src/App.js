@@ -19,9 +19,9 @@ class App extends Component {
     return (
       <div>
         <ul>
-          <li>task1</li>
-          <li>task2</li>
-          <li>task3</li>
+          {items.map((item, i) => {
+            return <li key={i}>{item}</li>;
+          })}
         </ul>
         <div>
           <input type='text' value={text} onChange={(e) => this.setState({ text: e.target.value })} />
