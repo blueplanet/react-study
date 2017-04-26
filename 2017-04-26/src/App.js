@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import TaskList from './TaskList';
 // cssをinputできるのは、webpackやってくれている
 
 const ENTER_KEY = 13;
@@ -32,11 +33,10 @@ class App extends Component {
 
     return (
       <div>
-        <ul>
-          {items.map((item, i) => {
-            return <li key={i}>{item} <button onClick={this.onClickDelete.bind(this, i)}>Delete</button></li>;
-          })}
-        </ul>
+        <TaskList
+          items={items}
+          onClickDelete={this.onClickDelete.bind(this)}
+        />
         <div>
           <input
             type='text'
