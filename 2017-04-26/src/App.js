@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // cssをinputできるのは、webpackやってくれている
 
+const ENTER_KEY = 13;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +38,13 @@ class App extends Component {
           })}
         </ul>
         <div>
-          <input type='text' ref='input' value={text} onChange={(e) => this.setState({ text: e.target.value })} />
+          <input
+            type='text'
+            ref='input'
+            value={text}
+            onChange={(e) => this.setState({ text: e.target.value })}
+            onKeyUp={this.onKeyUpInput.bind(this)}
+          />
           <input type='submit' value="Add" onClick={this.onClickAddButton.bind(this)} />
         </div>
       </div>
@@ -47,8 +55,18 @@ class App extends Component {
     const { items, text } = this.state;
     if ( text == null || text.length == 0) { return; }
 
-    // 新しい配列にする
-    const newItems = items.concat([text]);
+    this.addItem();
+  }
+
+  onKeyUpInput(e) {
+    if (e.keyCode === ENTER_KEY) {
+      this.addItem();
+    }
+  }
+
+  addItem() {
+    const { items, text } = this.state;
+    const newItems = items.concat(text);
     this.setState({ items: newItems, text: '' });
   }
 }
