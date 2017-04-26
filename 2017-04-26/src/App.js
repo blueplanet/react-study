@@ -47,7 +47,9 @@ class App extends Component {
           />
           <input type='submit' value="Add" onClick={this.onClickAddButton.bind(this)} />
           <br />
-          {items.length === 0 ? null : items.length}
+          {items.length > 0 && (
+            <p>タスク数：{items.length}</p>
+          )}
         </div>
       </div>
     );
