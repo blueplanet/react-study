@@ -46,6 +46,8 @@ class App extends Component {
             onKeyUp={this.onKeyUpInput.bind(this)}
           />
           <input type='submit' value="Add" onClick={this.onClickAddButton.bind(this)} />
+          <br />
+          {items.length === 0 ? null : items.length}
         </div>
       </div>
     );
