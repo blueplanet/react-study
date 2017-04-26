@@ -64,11 +64,19 @@ class App extends Component {
     }
   }
 
-  onClickDelete(i, e) {
+  onClickDelete(i) {
     // 各パラメータが来て、eは最後
+    if (confirm('削除しますか？')) {
+      this.removeItem(i);
+    }
+  }
+
+  removeItem(i) {
     const { items } = this.state;
-    const newItems = items.concat();
-    newItems.splice(i, 1);
+    const newItems = [
+      ...items.slice(0, i),
+      ...items.slice(i + 1)
+    ]
 
     this.setState({ items: newItems });
   }
