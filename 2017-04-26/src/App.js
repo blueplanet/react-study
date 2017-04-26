@@ -52,8 +52,8 @@ class App extends Component {
   }
 
   onClickAddButton() {
-    const { items, text } = this.state;
-    if ( text == null || text.length == 0) { return; }
+    const { text } = this.state;
+    if ( text === null || text.length === 0) { return; }
 
     this.addItem();
   }
