@@ -13,6 +13,10 @@ class App extends Component {
   }
 
   componentDidUpdate(preProps, preState) {
+    this.focusInputNeeded(preState);
+  }
+
+  focusInputNeeded(preState) {
     if (preState.items.length < this.state.items.length) {
       const realInput = ReactDOM.findDOMNode(this.refs.input);
       realInput.focus();
