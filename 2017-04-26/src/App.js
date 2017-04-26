@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 // cssをinputできるのは、webpackやってくれている
 
 class App extends Component {
@@ -9,6 +10,13 @@ class App extends Component {
       items: [],
       text: '',
     };
+  }
+
+  componentDidUpdate(preProps, preState) {
+    if (preState.items.length < this.state.items.length) {
+      const realInput = ReactDOM.findDOMNode(this.refs.input);
+      realInput.focus();
+    }
   }
 
   render() {
@@ -24,7 +32,7 @@ class App extends Component {
           })}
         </ul>
         <div>
-          <input type='text' value={text} onChange={(e) => this.setState({ text: e.target.value })} />
+          <input type='text' ref='input' value={text} onChange={(e) => this.setState({ text: e.target.value })} />
           <input type='submit' value="Add" onClick={this.onClickAddButton.bind(this)} />
         </div>
       </div>
@@ -37,7 +45,7 @@ class App extends Component {
 
     // 新しい配列にする
     const newItems = items.concat([text]);
-    this.setState({ items: newItems });
+    this.setState({ items: newItems, text: '' });
   }
 }
 
