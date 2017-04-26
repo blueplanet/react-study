@@ -34,7 +34,7 @@ class App extends Component {
       <div>
         <ul>
           {items.map((item, i) => {
-            return <li key={i}>{item}</li>;
+            return <li key={i}>{item} <button onClick={this.onClickDelete.bind(this, i)}>Delete</button></li>;
           })}
         </ul>
         <div>
@@ -62,6 +62,15 @@ class App extends Component {
     if (e.keyCode === ENTER_KEY) {
       this.addItem();
     }
+  }
+
+  onClickDelete(i, e) {
+    // 各パラメータが来て、eは最後
+    const { items } = this.state;
+    const newItems = items.concat();
+    newItems.splice(i, 1);
+
+    this.setState({ items: newItems });
   }
 
   addItem() {
